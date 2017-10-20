@@ -1,3 +1,5 @@
+// Oroginal Design  Martijn Vos ledfreak3d@gmail.com 20-10-17 ////////////
+
 #include <ESP8266WiFi.h>
 #include <DNSServer.h>
 #include <ESP8266WebServer.h>
