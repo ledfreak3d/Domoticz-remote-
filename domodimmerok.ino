@@ -1,5 +1,3 @@
-// Oroginal Design  Martijn Vos ledfreak3d@gmail.com 20-10-17 ////////////
-
 #include <ESP8266WiFi.h>
 #include <DNSServer.h>
 #include <ESP8266WebServer.h>
@@ -19,64 +17,80 @@ String v = String(volt); // change float into string
 //int old_sensor_value = 0;
 const int analogInPin = A0;
 
-int sensorValue = 0;        // value read from the pot
+int sensorValue = 0;        // value read from analog input
 int output_value = 0;        // value output to display
+
+
+////Dimmer IDX numbers ////////
+
 int idx = 377; //IDX for virtual sensor, found in Setup -> Devices
 int idx1 = 363; // IDX FOR Vensterbank
 int idx2 = 358; // ikea lamp
 int idx3 = 376;  //tafellamp
-int idx4 = 16;  //aqua rw
-int idx5 = 25;  // aqua bw
+int idx4 = 255;  //aqua rw
+int idx5 = 256;  // aqua bw
 int idx6 = 220; //keuken warm
 int idx7 = 376; //tafel lamp
 int idx8 = 107; //blokhut
 
-const char* host1 = "192.168.1.3";
-const char* host = "Domoremote";
+const char* host1 = "192.168.1.3";   //Domoticz server ip 
+const int httpPort = 8084;  // Domoticz port
+const char* host = "Domoremote";  // just the host name that shows up on the network
 int value = 0;
 WiFiManager wifi;
 
 String ssid;  //string that holds ssid
-String pass; 
-String rssi;
-
+String pass;  // string that holds the password
+String rssi;  // string that holds the signal strenght
+String ip2;   //Client ip addres
+String apssid;  // Acces point ip addres
 
 ESP8266WebServer server(80);
 const char* serverIndex = "<form method='POST' action='/update' enctype='multipart/form-data'><input type='file' name='update'><input type='submit' value='Update'></form>";
 
 
-SoftwareSerial nextion(5, 4);
+SoftwareSerial nextion(5, 4);   // set rx and tx to  pins 5 and 4
+
+Nextion myNextion(nextion, 9600);//create a Nextion object named myNextion using the nextion serial port @ 9600bps
+//myNextion.init();
 
 void configModeCallback (WiFiManager *myWiFiManager) {
   Serial.println("Entered config mode");
+  ip2 = WiFi.softAPIP().toString();
+  apssid = wifi.getConfigPortalSSID();
   Serial.println(WiFi.softAPIP());
+  myNextion.sendCommand("page wifi");
+  myNextion.setComponentText("t15", "Please connect to network:");
+  myNextion.setComponentText("t18", "And browse to :");
+  myNextion.setComponentText("t17",ip2);
+  myNextion.setComponentText("t16",apssid);
 
   //if you used auto generated SSID, print it
-  Serial.println(wifi.getConfigPortalSSID());
+  Serial.println(apssid);
+ 
 }
 
-const int httpPort = 8084;  // Domoticz port
 
-Nextion myNextion(nextion, 9600);//create a Nextion object named myNextion using the nextion serial port @ 9600bps
+
+//Nextion myNextion(nextion, 9600);//create a Nextion object named myNextion using the nextion serial port @ 9600bps
 
 void setup() {
 
+  myNextion.init();
   pinMode(A0, INPUT);
   int sensorValue = 0;
-
   Serial.begin(9600);
-  myNextion.init();
   WiFiManager wifiManager;
   ssid = WiFi.SSID();
   const int analogRead(A0);
 
   //reset settings - for testing
-  //wifiManager.resetSettings(/);
+  //wifiManager.resetSettings();
 
   //set callback that gets called when connecting to previous WiFi fails, and enters Access Point mode
   wifiManager.setAPCallback(configModeCallback);
 
-  if (!wifiManager.autoConnect()) {
+  if (!wifiManager.autoConnect("Remote-Ap")) {
     Serial.println("failed to connect and hit timeout");
     //reset and try again, or maybe put it to deep sleep
     ESP.reset();
@@ -85,20 +99,23 @@ void setup() {
   }
 
   while (WiFi.status() != WL_CONNECTED) {
-    delay(100);
+
+   // delay(100);
     Serial.print(".");
     Serial.print("connecting to ");
     Serial.println(host1);
-  
   }
-  String ipaddress = WiFi.localIP().toString();
+  
+    String ipaddress = WiFi.localIP().toString();
   // String rssi = WiFi.RSSI().toString();
   // Serial.println(WiFi.RSSI());
+  myNextion.sendCommand("page home");
   myNextion.setComponentText("t1", String(ssid));
   myNextion.setComponentText("t4", String(ipaddress));
-  myNextion.sendCommand("n10.val,10" );
+  myNextion.sendCommand("t10.val,10" );
+ myNextion.setComponentValue("j2", output_value);
   myNextion.sendCommand("va0.val,1");
-  myNextion.sendCommand("vis p0,1");
+    myNextion.sendCommand("vis p0,1");
 
   
   MDNS.begin(host);
@@ -134,6 +151,7 @@ void setup() {
         Update.printError(Serial);
       }
       Serial.setDebugOutput(false);
+      myNextion.setComponentText("b50", "FW:Update OK !");
     }
     yield();
   });
@@ -149,6 +167,12 @@ void update() {
   myNextion.setComponentText("t11", "Pls browse to");
   myNextion.setComponentText("t12", String(ipaddress));
   delay(300);
+}
+void resetwifi() {
+  WiFiManager wifiManager;
+wifiManager.resetSettings();
+ESP.reset();
+  
 }
 
 void batlvl() {
@@ -1060,11 +1084,14 @@ void loop(void) {
     ++value;
 
   }
+if (message == "reset") {
+     Serial.print("Reset wifi");
+     resetwifi();
+     
+ 
+}
 }
 
-
-
 //end
-
 
 
