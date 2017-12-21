@@ -149,7 +149,7 @@ void setup() {
   //String ipaddress = WiFi.localIP().toString();
   Serial.println(F("----Webserver started----"));
   Serial.println("Use this URL to connect: http://" + ipaddress + "/"); // Print the IP address
-  webserver.on("/",         dimmer_input); // If the user types at their browser http://192.168.0.100/ control is passed here and then to user_input, you get values for your program...
+  webserver.on("/",         setup_input); // If the user types at their browser http://192.168.0.100/ control is passed here and then to user_input, you get values for your program...
   webserver.on("/homepage", homepage);   // If the user types at their browser http://192.168.0.100/homepage or via menu control is passed here and then to the homepage
   webserver.on("/command1", page1);      // If the user types at their browser http://192.168.0.100/page1 or via menu control is passed here and then to the page1
  
