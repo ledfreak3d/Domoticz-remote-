@@ -1,3 +1,6 @@
+//////// Source code bij Martijn vos ///////////////
+
+
 #include <FS.h>                   //this needs to be first, or it all crashes and burns...
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>          //https://github.com/esp8266/Arduino
