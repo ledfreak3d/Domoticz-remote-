@@ -20,4 +20,11 @@ The firmware uses wifi manager to connect to the wifi network the first time
 Once ota update is enabled on the display.
 The esp will host a web server on its ip where you can upload a new firmware file to.
 Please keep in mind please compile the firmware with sufficiant file storage so it can actualy save the field for flashing later on
+------------------------------------------------------------------------------------------------------------------------------------
+Update !!!!!!!! 
+
+Idx config can be done via web interface now
+all settings are now saved in a json config file
+this file can also be uploaded to the esp via the build in ftp server now.
+
 
