@@ -7,6 +7,10 @@ Using a Nextion 3.5 inch display and a Esp8266 to controll virtial switches in D
 Currently this firmware can controll switches and Dimmers
 And will report the battery status of the remote back to domoticz for monitoring.
 
+<img width="100%" alt="Chargeboard + monitor" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/batteryshield.png">
+
+<img width="100%" alt="Chargeboard + monitor" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/voltagemon.PNG">
+
 Please keep in mind this is still a work in progress 
 
 page added free for anybody to use
