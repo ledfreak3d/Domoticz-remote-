@@ -4,6 +4,10 @@ See youtube link for details and how it works
 
 https://www.youtube.com/watch?v=c9OlHDThYEU&
 
+The files for the case can be found on thingiverse
+
+https://www.thingiverse.com/thing:1708255
+
 
 <img width="100%" alt="esp8266 + Nextion Schematic" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/git.jpg">
 
