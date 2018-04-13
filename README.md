@@ -2,7 +2,8 @@ Domoticz Esp8266 + Nextion Remote
 
 See youtube link for details and how it works
 
-https://www.youtube.com/watch?v=c9OlHDThYEU&t=29s
+https://www.youtube.com/watch?v=c9OlHDThYEU&
+
 
 <img width="100%" alt="esp8266 + Nextion Schematic" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/git.jpg">
 
