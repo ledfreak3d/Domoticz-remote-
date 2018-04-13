@@ -1,5 +1,9 @@
 Domoticz Esp8266 + Nextion Remote 
 
+See youtube link for details and how it works
+
+https://www.youtube.com/watch?v=c9OlHDThYEU&t=29s
+
 <img width="100%" alt="esp8266 + Nextion Schematic" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/git.jpg">
 
 Using a Nextion 3.5 inch display and a Esp8266 to controll virtial switches in Domoticz and read data back.
