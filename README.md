@@ -1,4 +1,14 @@
-Domoticz Esp8266 + Nextion Remote 
+Domo-Remote
+
+Is a Remote for Domoticz and your connected devices 
+
+the remote allows your to controll switches dimmers and scenes
+it will report back its battery level to domoticz.
+
+The configuration can be changed via the build in webserver of via uploading a config file via ftp.
+Firmware updates can be uploaded via the build in webserver.
+
+<img width="100%" alt="Domo-Remote" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/touch.PNG">
 
 See youtube link for details and how it works
 
