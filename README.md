@@ -19,7 +19,7 @@ The files for the case can be found on thingiverse
 
 https://www.thingiverse.com/thing:1708255
 
-<img width="100%" alt="Domo-Remote" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/box.jpg">
+<img width="100%" alt="Domo-Remote enclusure " src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/box.jpg">
 
 
 <img width="100%" alt="esp8266 + Nextion Schematic" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/git.jpg">
@@ -28,6 +28,8 @@ Using a Nextion 3.5 inch display and a Esp8266 to controll virtual switches in D
 
 Currently this firmware can controll switches and Dimmers
 And will report the battery status of the remote back to domoticz for monitoring.
+
+<img width="100%" alt="Domo-Remote" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/inside.jpg">
 
 <img width="100%" alt="Chargeboard + monitor" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/batteryshield.png">
 
