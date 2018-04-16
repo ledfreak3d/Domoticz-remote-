@@ -12,13 +12,14 @@ Firmware updates can be uploaded via the build in webserver.
 
 See youtube link for details and how it works
 
-<img width="100%" alt="Domo-Remote" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/touch.PNG">
 
 https://www.youtube.com/watch?v=c9OlHDThYEU&
 
 The files for the case can be found on thingiverse
 
 https://www.thingiverse.com/thing:1708255
+
+<img width="100%" alt="Domo-Remote" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/box.PNG">
 
 
 <img width="100%" alt="Domo-Remote" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/box.png">
