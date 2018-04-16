@@ -12,6 +12,8 @@ Firmware updates can be uploaded via the build in webserver.
 
 See youtube link for details and how it works
 
+<img width="100%" alt="Domo-Remote" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/touch.PNG">
+
 https://www.youtube.com/watch?v=c9OlHDThYEU&
 
 The files for the case can be found on thingiverse
@@ -19,9 +21,12 @@ The files for the case can be found on thingiverse
 https://www.thingiverse.com/thing:1708255
 
 
+<img width="100%" alt="Domo-Remote" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/box.png">
+
+
 <img width="100%" alt="esp8266 + Nextion Schematic" src="https://github.com/ledfreak3d/Domoticz-remote-/blob/master/git.jpg">
 
-Using a Nextion 3.5 inch display and a Esp8266 to controll virtial switches in Domoticz and read data back.
+Using a Nextion 3.5 inch display and a Esp8266 to controll virtual switches in Domoticz and read data back.
 
 Currently this firmware can controll switches and Dimmers
 And will report the battery status of the remote back to domoticz for monitoring.
